@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FotoGames | Listagem</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="listaVenda">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="assets/stadia_controller_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link " href="/cliente" role="button">Cliente</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estoque</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/estoque/formulario">Cadastrar</a></li>
+                        <li><a class="dropdown-item" href="/estoque">Listagem</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vendas</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/venda/formulario">Efetuar</a></li>
+                        <li><a class="dropdown-item" href="/venda">Listagem</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">NF</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Forma Pagamento</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vp : ${vendaProduto}">
+                   <td th:text="${vp.venda.cliente.nome}"></td>
+                    <td th:text="${vp.venda.nf}"></td>
+                    <td th:text="${vp.valor_total}"></td>
+                    <td th:text="${vp.venda.form_pagamento}"></td>
+                    <td th:text="${vp.venda.data}"></td>
+        </tbody>
+    </table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

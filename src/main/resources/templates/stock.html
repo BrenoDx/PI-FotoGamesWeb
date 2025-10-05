@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FotoGames | Estoque</title>
+        <link rel="stylesheet" href="/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body class="estoque">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="assets/stadia_controller_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="/cliente" role="button">Cliente</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estoque</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/estoque/formuario">Cadastrar</a></li>
+                                <li><a class="dropdown-item" href="/estoque">Listagem</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vendas</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/venda/formulario">Efetuar</a></li>
+                                <li><a class="dropdown-item" href="/venda">Listagem</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="container-fluid">
+                <h2 class="fs-4 fs-md-3 fs-lg2">Cadastramento de Produto</h2>
+                <form  th:action="@{/estoque/cadastrar}" method="Post" class="form" id="form-produto">
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-4 d-flex gap-2">
+                            <input type="radio" name="tipoProduto" id="hard" value="Hardware">
+                            <label for="hard">Hardware</label>
+
+                            <input type="radio" name="tipoProduto" id="acess" value="Acessorio">
+                            <label for="acess">Acessório</label>
+
+                            <input type="radio" name="tipoProduto" id="jogo" value="Jogo">
+                            <label for="jogo">Jogo</label>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Produto</label>
+                            <input type="text" class="form-control" name="nomeProduto"required>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Quantidade:</label>
+                            <input type="number" class="form-control" name="qntd"required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Fabricante:</label>
+                            <input type="text" name="fabricante" class="form-control">
+                        </div>
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Valor:</label>
+                            <input type="number" step="0.01" name="valor" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Garantia:</label>
+                            <input type="number" name="garantia" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex gap-2 mb-3">
+                            <label class="mt-2">Cor:</label><br>
+                            <input type="text" class="form-control" name="cor">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-6 d-flex">
+                            <label class="mt-2">Plataforma:</label>
+                            <input type="text" class="form-control" name="plataforma">
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex gap-2">
+                            <button type="reset" class="btn btn-warning">Limpar</button>
+                            <button type="sumbit" class="btn btn-primary">Cadastrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
